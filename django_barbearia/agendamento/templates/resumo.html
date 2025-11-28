@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/bebas-neue" rel="stylesheet">
+</head>
+<body>
+    <div class="verificateResumo"></div>
+    <header>
+        <div class="itens-header">
+            <i data-lucide="scissors" class="scissors"></i>
+            <div class="texts-header">
+                <p>Barbearia</p>
+                <p class="shop-name">NOME DA BARBEARIA</p>
+            </div>
+        </div>
+    </header>
+    <nav style="width: auto; padding: 5px 20px 5px 20px;">
+        <ul>
+            <li><a href="{% url 'home' %}"><i data-lucide="house" class="house icon-nav"></i>INÍCIO</a></li>
+            <li><a href="{% url 'home' %}#about"><i data-lucide="at-sign" class="at-sign icon-nav"></i>SOBRE</a></li>
+            <li><a href="{% url 'home' %}#services"><i data-lucide="layout-list" class="layout-list icon-nav"></i>SERVIÇOS</a></li>
+        </ul>
+    </nav>
+    <section id="main-content-page-agendamento" class="main-content-page-agendamento">
+        <p class="maren">RESUMO</p>
+        <main>
+            <div class="timeline">
+                <div class="timeline-step ativo">
+                    <div class="circle"><i data-lucide="check"></i></div>
+                    <span>SERVIÇOS</span>
+                </div>
+                <div class="line"></div>
+                <div class="timeline-step ativo">
+                    <div class="circle"><i data-lucide="check"></i></div>
+                    <span>DATA E HORA</span>
+                </div>
+                <div class="line"></div>
+                <div class="timeline-step ativo">
+                    <div class="circle">3</div>
+                    <span>RESUMO</span>
+                </div>
+            </div>
+            <div class="card-resumo">
+
+            </div>
+            <div class="inputFone">
+                <i data-lucide="phone" class="fone-icon"></i>
+                <input type="tel" name="foneUser" id="foneUser" class="foneUser" placeholder="(DDD) 9XXXX - XXXX">
+            </div>
+            <div class="container-next-btn">
+                <button class="next-btn btn-enviar-agendamento" style="border: 0;cursor: pointer;">CONFIRMAR</button>
+            </div>
+        </main>
+    </section>
+    <script id="jsonResumo" type="application/json">
+        {{ dados_json|safe }}
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

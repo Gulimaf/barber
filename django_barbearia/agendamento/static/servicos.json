@@ -1,0 +1,30 @@
+[
+  {
+    "nome": "Corte",
+    "preco": "35.00 R$",
+    "duracao_min": "45min",
+    "descricao": "Breve descrição do serviço.",
+    "imagem": "/static/images/default.png"
+  },
+  {
+    "nome": "Sobrancelha",
+    "preco": "5.00 R$",
+    "duracao_min": "5min",
+    "descricao": "Breve descrição do serviço.",
+    "imagem": "/static/images/default.png"
+  },
+  {
+    "nome": "Barba",
+    "preco": "30.00 R$",
+    "duracao_min": "15min",
+    "descricao": "Breve descrição do serviço.",
+    "imagem": "/static/images/default.png"
+  },
+  {
+    "nome": "Barboterapia",
+    "preco": "40.00 R$",
+    "duracao_min": "30min",
+    "descricao": "Breve descrição do serviço.",
+    "imagem": "/static/images/default.png"
+  }
+]

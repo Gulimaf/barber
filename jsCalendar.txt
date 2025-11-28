@@ -1,0 +1,109 @@
+function gerarCalendario(mes, ano) {
+  const containerDatas = document.querySelector('.calendar-dates');
+  const containerDias = document.querySelector('.calendar-days');
+  const nomeMes = document.querySelector('#titulo-mes');
+  const diaSemanaEl = document.querySelector('#dia-semana');
+  const diaMesEl = document.querySelector('#dia-mes');
+  if(containerDatas && containerDias){
+    containerDatas.innerHTML = '';
+    containerDias.innerHTML = '';
+  }
+
+  const diasDaSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  diasDaSemana.forEach(dia => {
+    const div = document.createElement('div');
+    div.classList.add('day-name');
+    div.textContent = dia;
+    containerDias.appendChild(div);
+  });
+
+  const dataHoje = new Date();
+  const primeiroDiaSemana = new Date(ano, mes, 1).getDay();
+  const totalDiasMes = new Date(ano, mes + 1, 0).getDate();
+  const totalDiasMesAnterior = new Date(ano, mes, 0).getDate();
+
+  const nome = new Date(ano, mes).toLocaleString('pt-BR', { month: 'long' });
+  nomeMes.textContent = `${nome.charAt(0).toUpperCase() + nome.slice(1)} ${ano}`;
+
+  const diasAnteriores = primeiroDiaSemana;
+  for (let i = diasAnteriores; i > 0; i--) {
+    const dia = totalDiasMesAnterior - i + 1;
+    const div = document.createElement('div');
+    div.classList.add('date', 'fora-do-mes');
+    div.textContent = dia;
+    containerDatas.appendChild(div);
+  }
+
+  for (let dia = 1; dia <= totalDiasMes; dia++) {
+    const divDia = document.createElement('div');
+    divDia.classList.add('date');
+    divDia.textContent = dia;
+
+    // Marcar o dia de hoje
+    if (
+      dia === dataHoje.getDate() &&
+      mes === dataHoje.getMonth() &&
+      ano === dataHoje.getFullYear()
+    ) {
+      divDia.classList.add('hoje');
+    }
+
+    // Adicionar evento de clique
+    divDia.addEventListener('click', () => {
+      // Remover destaque do dia anterior
+      if (diaSelecionado) {
+        diaSelecionado.classList.remove('selecionado');
+      }
+
+      // Adicionar destaque ao novo dia
+      divDia.classList.add('selecionado');
+      diaSelecionado = divDia;
+      dataFormatada = `${ano}-${String(mes+1).padStart(2,'0')}-${String(dia).padStart(2,'0')}`;
+      enviarData(dataFormatada);
+    });
+
+    containerDatas.appendChild(divDia);
+  }
+
+  const totalCelas = diasAnteriores + totalDiasMes;
+  const celulasNecessarias = Math.ceil(totalCelas / 7) * 7;
+  const diasSeguinte = celulasNecessarias - totalCelas;
+
+  for (let i = 1; i <= diasSeguinte; i++) {
+    const div = document.createElement('div');
+    div.classList.add('date', 'fora-do-mes');
+    div.textContent = i;
+    containerDatas.appendChild(div);
+  }
+}
+
+function mesAnterior() {
+  mesAtual--;
+  if (mesAtual < 0) {
+    mesAtual = 11;
+    anoAtual--;
+  }
+  diaSelecionado = null; // limpa seleção
+  gerarCalendario(mesAtual, anoAtual);
+}
+
+function proximoMes() {
+  mesAtual++;
+  if (mesAtual > 11) {
+    mesAtual = 0;
+    anoAtual++;
+  }
+  diaSelecionado = null;
+  gerarCalendario(mesAtual, anoAtual);
+}
+const verificateCalendar = document.querySelector('.calendar-section');
+if (verificateCalendar){
+  gerarCalendario(mesAtual, anoAtual);
+}
+function getCsrfToken() {
+    const metaTag = document.querySelector('meta[name="csrf-token"]');
+    if (metaTag) {
+        return metaTag.getAttribute('content');
+    }
+    return ''; 
+}

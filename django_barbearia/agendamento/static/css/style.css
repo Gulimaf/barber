@@ -1,0 +1,641 @@
+@font-face {
+    font-family: 'Maren';
+    src: url('../fonts/maren.ttf') format('truetype');
+    font-weight: normal;
+    font-size: normal;
+}
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans';
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+body::-webkit-scrollbar-track{
+    background-color: black;
+}
+body::-webkit-scrollbar{
+    width: 6px;
+}
+body::-webkit-scrollbar-thumb{
+    background: #EFE5AD;
+    border-radius: 10px;
+}
+
+nav{
+    width: 350px;
+    border: 1px solid white;
+    border-radius: 35px;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    z-index: 9;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li a .icon-nav{
+    width: 30px;
+    height: 30px;
+    font-weight: 100;
+    stroke-width: 1;
+}
+header{
+    width: 100%;
+    max-height: 700px;
+    border-bottom: 1px solid #EFE5AD;
+}
+header .itens-header{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.itens-header .texts-header{
+    font-family: 'Bebas neue', sans-serif;
+    color: white;
+    font-size: 24px;
+    font-weight: 550;
+}
+.shop-name{
+    color: #EFE5AD;
+    font-family: 'Maren';
+}
+.scissors{
+    background-color: #EFE5AD;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    color: black;
+}
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.home .home-content .home-texts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+.titles h1{
+    font-family: 'Bebas neue';
+    font-size: 50px;
+}
+.maren{
+    color: #EFE5AD;
+    font-family: 'Maren' !important;
+    font-size: 56px;
+}
+.little-text{
+    max-width: 70%;
+    font-size: 24px;
+}
+.home-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+.home-buttons a{
+    max-width: 80%;
+    text-decoration: none;
+}
+.home-buttons .color{
+    display: flex;
+    gap: 5px;
+    background-color: #EFE5AD;
+    color: black;
+    padding: 10px 7%;
+    border-radius: 15px;
+    transition: background-color .5s ease-in-out,
+            color .5s ease-in-out,
+            border .5s ease-in-out;
+}
+.color:hover{
+    background-color: black;
+    color: #EFE5AD;
+    border: 1px solid #EFE5AD;
+}
+.home-buttons .nocolor{
+    display: flex;
+    gap: 5px;
+    border: 1px solid #EFE5AD;
+    color: #EFE5AD;
+    padding: 10px 7%;
+    border-radius: 15px;
+    transition: background-color .5s ease-in-out,
+    color .5s ease-in-out;
+}
+.nocolor:hover{
+    background-color: #EFE5AD;
+    color: black;
+}
+.about{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 12%;
+    flex-direction: column;
+    align-items: center;
+}
+.about-content{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 5%;
+    align-items: center;
+}
+.text-about{
+    width: 40%;
+    padding: 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 3px 10px 5px #EFE5AD;   
+}
+.logo-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo-name img{
+    border: 1px solid white;
+    width: 150px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.logo-name p{
+    font-family: 'Maren';
+    color: #EFE5AD;
+    font-size: 24px;
+}
+.services{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 12%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+.services-content{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 850px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.services-content .card{
+    display: flex;
+    gap: 15px;
+    border: 2px solid #EFE5AD;
+    border-radius: 15px;
+    padding: 15px 20px;
+    transition: scale .5s ease-in-out;
+    position: relative;
+}
+.services-content .card img{
+    border-radius: 15px;
+    height: 100px;
+    height: 125px;
+}
+.services-content .card .service-name{
+    font-family: 'Bebas neue';
+    font-size: 24px;
+    font-weight: 600;
+}
+.services-content .card .service-price{
+    font-family: 'Bebas neue';
+    font-size: 20px;
+    font-weight: 600;
+    color: #EFE5AD;
+}
+.clock{
+    color: white;
+    margin: 0;
+}
+.services-content .card .service-time{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+/*
+
+    AGENDAMENTO01.HTML
+
+*/
+
+.main-content-page-agendamento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+.timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  margin-top: 30px;
+}
+
+.timeline-step {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.circle {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px auto;
+}
+
+.line {
+  width: 30px;
+  height: 1px;
+  background: white;
+  opacity: 0.5;
+  margin-bottom: 15px;
+}
+
+.timeline-step.ativo .circle {
+  background: #EFE5AD;
+  color: black;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    margin-top: 20px;
+}
+.search input{
+    width: 80%;
+    height: 30px;
+    border: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-left: 12px;
+    font-family: 'Open Sans';
+}
+.search-character{
+    color: black;
+}
+.icon-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-left: 1px solid gray;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 0px 10px;
+}
+.resultado-search{
+    max-width: 500px;
+    max-height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 10px;
+}
+.resultado-search .card:hover{
+    scale: 1;
+}
+.resultado-search::-webkit-scrollbar-track{
+    background-color: black;
+}
+.resultado-search::-webkit-scrollbar{
+    width: 6px;
+}
+.resultado-search::-webkit-scrollbar-thumb{
+    background: #EFE5AD;
+    border-radius: 10px;
+}
+.container-next-btn{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+.next-btn{
+    display: block;
+    width: 100%;
+    background-color: #EFE5AD;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+}
+.check-container {
+    display: none;
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    color: rgb(0, 255, 0);
+}
+
+.check-container.active {
+    display: block;
+}
+
+/*
+CALENDÁRIO
+CALENDÁRIO
+CALENDÁRIO
+*/
+#calendar {
+    color: white !important;
+    width: 100%;
+    font-family: 'Open Sans',sans-serif;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    height: auto;
+    border: 1px solid #EFE5AD;
+    border-radius: 20px;
+    margin-top: 3%;
+}
+#dia-semana{
+  font-size: 3em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#dia-mes {
+  font-size: 4em;
+}
+.calendar-section{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-header {
+color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.calendar-days, .calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+.fora-do-mes {
+  color: #aaa !important;
+  
+}
+.fora-do-mes:hover{
+  background-color: #f9f9f9 !important;
+  cursor: default !important;
+}
+.day-name, .date, .empty {
+  padding: 10px;
+}
+
+.day-name {
+    border-right: 1px solid #EFE5AD;
+    font-weight: bold;
+}
+.day-name:nth-child(7){
+    border-right: 0;
+}
+.date {
+  cursor: pointer;
+  padding: 12px 0;
+  transition: background-color 0.2s;
+  border-right: 1px solid #EFE5AD;
+  color: white;
+  border-top: 1px solid #EFE5AD;
+}
+.date:nth-child(7){
+    border-right: 0;
+}
+.date:nth-child(14){
+    border-right: 0;
+}
+.date:nth-child(21){
+    border-right: 0;
+}
+.date:nth-child(28){
+    border-right: 0;
+}
+.date:nth-child(35){
+    border-right: 0;
+}
+.date:nth-child(42){
+    border-right: 0;
+}
+.date:hover {
+  background-color: #EFE5AD;
+  color: black;
+}
+.calendar-header {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 1.2em;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-header #titulo-mes {
+  flex-grow: 1;
+  text-align: center;
+  color: white;
+}
+
+.btn {
+  border-radius: 10px;
+  height: 30px;
+  width: 30px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #EFE5AD;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.resultado-horas{
+  display: flex;
+  max-width: 400px;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.resultado-horas span{
+  border: 0.5px solid #EFE5AD;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 10px;
+  transition:   background-color .5s ease-in-out,
+                color .5s ease-in-out;
+}
+.resultado-horas span:hover{
+    background-color: #EFE5AD;
+    color: black;
+}
+.resultado-horas .hour-selected{
+    background-color: #EFE5AD;
+    color: black;
+}
+.card-resumo{
+    max-width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid #EFE5AD;
+    border-radius: 20px;
+    height: auto;
+    padding: 20px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 20px;
+}
+.card-resumo p{
+    margin: 5px;
+}
+.btn-enviar-agendamento{
+    background-color: #81FF81 !important;
+}
+.inputFone{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.inputFone input{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #EFE5AD;
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans',sans-serif;
+    padding-left: 40px;
+    font-size: 24px;
+}
+.inputFone .fone-icon{
+    position: fixed;
+    transform: translateX(10px);
+    color: #EFE5AD;
+
+}
+
+.circle-check{
+    height: 100px;
+    width: 100px;
+    background-color: #81FF81;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0px auto;
+    border-radius: 50%;
+}
+.circle-check .circleCheck-icon{
+    width: 50px;
+    height: 50px;
+}
+.message{
+    text-align: center;
+    width: 100%;
+    font-family: 'Open Sans',sans-serif;
+    margin-top: 10px;
+}
+.alert-card{
+    max-width: 30%;
+    border-radius: 15px;
+    border: 1px solid #EFE5AD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.message-alert{
+    max-width: 90%;
+    text-align: center;
+}
+.alert{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.alert-title{
+    font-family: 'Bebas neue',sans-serif;
+}
+@media (max-width:880px){
+    .services-content{
+        grid-template-columns: 1fr;
+    }
+    .about-content{
+        display: flex;
+        flex-direction:column;
+    }
+    .about-content .text-about{
+        width: 80%;
+    }
+    .alert-card{
+        max-width: 80%;
+    }
+}
